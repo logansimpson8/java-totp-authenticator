@@ -16,7 +16,13 @@ public class Demo {
         System.out.println("enter it into Google Authenticator.");
         System.out.println("-------------------------------------------");
         System.out.println("live codes (Press Ctrl+C to stop monitoring)");
-        System.out.println();
+
+        String issuer = "LoganAuth"; // this is just the names that will come up on the google auth changge to what you want
+        String account = "Test";
+        String qrUrl = auth.getQRUrl(userSecret, account, issuer); // make sure to scan this qr IN google authenticator, not camera app or itll
+        // try take you to passwords instead
+        System.out.println("or scan this qr code for quicker setup:");
+        System.out.println(qrUrl);
 
         while (true) {
             long step = time.getCurrentStep();
